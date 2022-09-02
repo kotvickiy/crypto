@@ -69,7 +69,7 @@ def save_update_sheets():
     worksheet.update('A2', now_time_msk())
 
 
-print("start")
+print("Start: {now_time_msk()}")
 start = datetime.now()
 save_update_sheets()
 print(datetime.now() - start)
