@@ -65,3 +65,10 @@ def usdt_tin1000_min():
     json_data = json.loads(response.text)
     res = float(json_data['data'][0]['adv']['price'])
     return res
+
+
+from datetime import datetime
+print("start")
+start = datetime.now()
+print(usdt_tin_all_min())
+print(datetime.now() - start)
