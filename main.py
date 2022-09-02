@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import platform, gspread
 from datetime import datetime, timezone, timedelta
 
