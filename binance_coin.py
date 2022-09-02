@@ -31,6 +31,7 @@ def usdt_tin_all_min():
     response = requests.post('https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search', headers=headers, data=data)
     json_data = json.loads(response.text)
     res = float(json_data['data'][0]['adv']['price'])
+    print(f"usdt_tin_all_min: {res}")
     return res
 
 
@@ -64,4 +65,5 @@ def usdt_tin1000_min():
     response = requests.post('https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search', headers=headers, data=data)
     json_data = json.loads(response.text)
     res = float(json_data['data'][0]['adv']['price'])
+    print(f"usdt_tin1000_min: {res}")
     return res
