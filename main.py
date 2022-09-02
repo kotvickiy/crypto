@@ -58,14 +58,14 @@ def usdt_tin_tin1000():
 
 
 def save_update_sheets():
-    utt1000 = usdt_tin_tin1000()
-    print(usdtrub, btcrub, utt1000)
     gc = gspread.service_account(filename='./sacc.json')
     sh = gc.open("Crypto")
     worksheet = sh.sheet1
     worksheet.update('A2', now_time_msk())
     worksheet.update('B5', usdtrub)
     worksheet.update('B6', btcrub)
+    utt1000 = usdt_tin_tin1000()
+    print(usdtrub, btcrub, utt1000)
     worksheet.update('B13', utt1000)
     worksheet.format("B13", set_color(utt1000))
 
