@@ -72,4 +72,5 @@ def save_update_sheets():
 print(f"Start: {now_time_msk()}")
 start = datetime.now()
 save_update_sheets()
-print(datetime.now() - start)
+print(f"[ + ] {datetime.now() - start}")
+print("-" * 150)
