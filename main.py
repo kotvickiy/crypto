@@ -46,26 +46,19 @@ def set_color(value):
         return {"backgroundColor": {"red": .2, "green": 1, "blue": .2}}
     elif value >= 800:
         return {"backgroundColor": {"red": .1, "green": 1, "blue": .1}}
- 
-
-def usdt_tin_tin1000():
-    sum_card = get_sum_on_the_card()
-    min_tin_usdt = usdt_tin_all_min()
-    min_tin_usdt1000 = usdt_tin1000_min()
-    dol_spread = (sum_card / min_tin_usdt) - (sum_card / min_tin_usdt1000)
-    return round(dol_spread * min_tin_usdt, 2)
 
 
 def save_update_sheets():
     gc = gspread.service_account(filename='./sacc.json')
     sh = gc.open("Crypto")
     worksheet = sh.sheet1
+    worksheet2 = sh.worksheet("Лист2")
     worksheet.update('B5', usdtrub)
     worksheet.update('B6', btcrub)
-    utt1000 = usdt_tin_tin1000()
-    print(usdtrub, btcrub, utt1000)
-    worksheet.update('B13', utt1000)
-    worksheet.format("B13", set_color(utt1000))
+    worksheet2.update('I3', usdt_tin_all_min())
+    worksheet2.update('I4', usdt_tin1000_min())
+    val = float(worksheet.acell('B13').value.replace(",", ".").strip())
+    worksheet.format("B13", set_color(val))
     worksheet.update('A2', now_time_msk())
 
 
